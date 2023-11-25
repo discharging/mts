@@ -13,11 +13,12 @@ export default function NewCard() {
     <Card
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      sx={{ position: "relative", maxWidth: 345 }}
+      sx={{ position: "relative", maxWidth: 345, marginLeft: "0.5rem" }}
     >
       <CardActionArea>
         <CardMedia
           component="img"
+          width="95%"
           height="100%"
           image="https://5.imimg.com/data5/SELLER/Default/2022/11/CN/YQ/VC/7335890/acrylic-laser-cutting-machine-250x250.jpg"
           alt="green iguana"
@@ -40,7 +41,7 @@ export default function NewCard() {
         >
           <Typography
             gutterBottom
-            variant="h6"
+            variant="body2"
             component="div"
             sx={{ color: "white" }}
           >

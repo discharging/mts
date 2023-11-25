@@ -1,4 +1,5 @@
-import { AppBar, Link, Stack, Toolbar } from "@mui/material";
+import { AppBar, Stack, Toolbar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Header2 = () => {
   return (
@@ -13,15 +14,9 @@ const Header2 = () => {
             alignItems: "center",
           }}
         >
-          <Link underline="none" href="/">
-            Home
-          </Link>
-          <Link underline="none" href="/products">
-            Our Products
-          </Link>
-          <Link underline="none" href="/about">
-            About Us
-          </Link>
+          <Link to="/">Home</Link>
+          <Link to="/products">Our Products</Link>
+          <Link to="/about">About Us</Link>
         </Stack>
       </Toolbar>
     </AppBar>

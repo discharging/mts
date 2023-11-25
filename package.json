@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
@@ -32,6 +32,8 @@
     "@mui/material": "^5.14.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.4.5",
+    "react-router-dom": "^6.4.1",
     "react-slick": "^0.29.0"
   }
 }

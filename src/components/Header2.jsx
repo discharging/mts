@@ -13,14 +13,14 @@ const Header2 = () => {
             alignItems: "center",
           }}
         >
-          <Link underline="none" href="#">
+          <Link underline="none" href="/">
             Home
           </Link>
-          <Link underline="none" href="#">
+          <Link underline="none" href="/products">
             Our Products
           </Link>
-          <Link underline="none" href="#">
-            Contact Us
+          <Link underline="none" href="/about">
+            About Us
           </Link>
         </Stack>
       </Toolbar>

@@ -1,43 +1,58 @@
 import { createRoot } from "react-dom/client";
-import { Box, Stack, Typography } from "@mui/material";
-import Header from "./components/Header";
-import Header2 from "./components/Header2";
-import MyCard from "./components/MyCard";
-import Footer from "./components/Footer";
-import Carousal from "./components/Carousal";
+import Home from "./components/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import Products from "./components/Products";
+import { Audio } from "react-loader-spinner";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Box } from "@mui/material";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an asynchronous operation, like fetching data or any initialization
+    const fakeAsyncOperation = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000); // Simulate a 2-second loading delay
+    };
+
+    fakeAsyncOperation();
+  }, []); // Run the effect only once on mount
+
   return (
-    <Box>
-      <Header />
-      <Header2 />
-      <Carousal />
-      <Box>
-        <Typography
-          variant="h3"
-          margin={{ xs: 2, md: 5 }}
+    <div>
+      {isLoading ? (
+        <Box
           sx={{
-            width: "100%",
-            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "600px",
           }}
         >
-          Our Products
-        </Typography>
-      </Box>
-      <Stack
-        display="flex"
-        flexWrap={"wrap"}
-        justifyContent={"space-between"}
-        direction={{ xs: "column", sm: "row" }}
-        spacing={{ xs: 1, sm: 2 }}
-      >
-        <MyCard />
-        <MyCard />
-        <MyCard />
-        <MyCard />
-      </Stack>
-      <Footer />
-    </Box>
+          <Audio
+            height="80"
+            width="80"
+            radius="9"
+            color="blue"
+            ariaLabel="three-dots-loading"
+            wrapperStyle
+            wrapperClass
+          />
+        </Box>
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </div>
   );
 };
 

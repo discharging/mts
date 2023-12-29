@@ -4,6 +4,7 @@ import Header2 from "./Header2";
 import MyCard from "./MyCard";
 import Footer from "./Footer";
 import Carousal from "./Carousal";
+
 function Home() {
   return (
     <Box>

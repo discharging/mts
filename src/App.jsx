@@ -4,23 +4,22 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About";
 import Products from "./components/Products";
 import { Audio } from "react-loader-spinner";
-import { useEffect } from "react";
 import { useState } from "react";
 import { Box } from "@mui/material";
+import Detail from "./components/Detail";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    },
+  },
+});
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate an asynchronous operation, like fetching data or any initialization
-    const fakeAsyncOperation = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000); // Simulate a 2-second loading delay
-    };
-
-    fakeAsyncOperation();
-  }, []); // Run the effect only once on mount
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div>
@@ -45,11 +44,17 @@ const App = () => {
         </Box>
       ) : (
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+          <QueryClientProvider client={queryClient}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/about" element={<About />} />
+              <Route
+                path="/products/:id"
+                element={<Detail loading={setIsLoading} />}
+              />
+            </Routes>
+          </QueryClientProvider>
         </BrowserRouter>
       )}
     </div>

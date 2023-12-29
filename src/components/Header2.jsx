@@ -1,6 +1,9 @@
 import { AppBar, Stack, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
-
+const style = {
+  textDecoration: "none",
+  color: "white",
+};
 const Header2 = () => {
   return (
     <AppBar sx={{ background: "black", position: "static" }}>
@@ -14,9 +17,15 @@ const Header2 = () => {
             alignItems: "center",
           }}
         >
-          <Link to="/">Home</Link>
-          <Link to="/products">Our Products</Link>
-          <Link to="/about">About Us</Link>
+          <Link to="/" style={style}>
+            Home
+          </Link>
+          <Link to="/products" style={style}>
+            Our Products
+          </Link>
+          <Link to="/about" style={style}>
+            About Us
+          </Link>
         </Stack>
       </Toolbar>
     </AppBar>

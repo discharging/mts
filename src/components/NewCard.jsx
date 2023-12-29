@@ -6,22 +6,30 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea } from "@mui/material";
 import { useState } from "react";
 
-export default function NewCard() {
+export default function NewCard({ name, img }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Card
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      sx={{ position: "relative", maxWidth: 345, marginLeft: "0.5rem" }}
+      sx={{
+        position: "relative",
+        maxWidth: 345,
+        marginLeft: "0.5rem",
+        overflow: "hidden",
+      }}
     >
       <CardActionArea>
         <CardMedia
           component="img"
           width="95%"
-          height="100%"
-          image="https://5.imimg.com/data5/SELLER/Default/2022/11/CN/YQ/VC/7335890/acrylic-laser-cutting-machine-250x250.jpg"
+          height="250px"
+          image={img}
           alt="green iguana"
+          sx={{
+            maxHeight: 250,
+          }}
         />
         <CardContent
           sx={{
@@ -41,11 +49,11 @@ export default function NewCard() {
         >
           <Typography
             gutterBottom
-            variant="body2"
+            variant="p"
             component="div"
             sx={{ color: "white" }}
           >
-            Acrylic Laser Cutting Machine
+            {name}
           </Typography>
           <Button variant="contained">Get Best Quota</Button>
         </CardContent>

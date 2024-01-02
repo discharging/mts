@@ -68,7 +68,7 @@ const Header = () => {
           spacing={{ xs: 1, sm: 2 }}
         >
           <StyledButtton onClick={handleOpen} startIcon={<Call />}>
-            <Typography variant="body2">CALL 9821356229</Typography>
+            <Typography variant="body2"> +91 9818528577</Typography>
           </StyledButtton>
           <StyledButtton onClick={handleOpen} startIcon={<Email />}>
             <Typography>SEND EMAIL</Typography>

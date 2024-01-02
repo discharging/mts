@@ -1,10 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
-import logo from "./mtslogo.png";
+import logo from "../assets/mtslogo.png";
 
 function Logo() {
   return (
-    <Box display="flex" alignItems="center">
+    <Box
+      display="flex"
+      alignItems="center"
+      sx={{ flexDirection: { xs: "column", md: "row" } }}
+    >
       <Box
         component="img"
         src={logo}
@@ -18,7 +22,7 @@ function Logo() {
       <Typography
         variant="h6"
         sx={{
-          marginLeft: { xs: 1, md: 2 },
+          marginLeft: { xs: 0.5, md: 2 },
           fontSize: { xs: "1rem", md: "1.5rem" },
           color: "blue",
         }}

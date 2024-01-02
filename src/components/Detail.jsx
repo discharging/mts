@@ -1,3 +1,3 @@
 export default function Detail() {
-  return <div>Detail</div>;
+  return <h1 className="h-96 flex items-center justify-center">Coming soon</h1>;
 }

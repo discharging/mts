@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import "./crousal.css";
-import NewCard from "./NewCard";
+import CarouselCard from "./CarouselCard";
 import products from "../../slider.json";
 import { useMediaQuery } from "@mui/material";
 
@@ -10,21 +10,24 @@ export default function Carousal() {
   const isMd = useMediaQuery("(max-width:1280px)");
   const isLg = useMediaQuery("(max-width:1920px)");
   const settings = {
-    dots: true,
     infinite: true,
-    slidesToShow: isXs ? 1 : isSm ? 2 : isMd ? 3 : isLg ? 4 : 5, // Adjust values based on your design
+    slidesToShow: isXs ? 1 : isSm ? 2.5 : isMd ? 2.5 : isLg ? 3.5 : 3.5, // Adjust values based on your design
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 4000,
-    cssEase: "linear",
+    speed: 3000,
+    autoplaySpeed: 6000,
+    cssEase: "ease",
     pauseOnHover: true,
   };
   return (
-    <div className="container">
+    <div className="bg-blue-500 p-7 ">
       <Slider {...settings}>
-        {products.map((product, idx) => (
-          <NewCard key={idx} name={product.name} img={product.image} />
+        {products.map((product) => (
+          <CarouselCard
+            key={product.id}
+            name={product.name}
+            img={product.image}
+          />
         ))}
       </Slider>
     </div>

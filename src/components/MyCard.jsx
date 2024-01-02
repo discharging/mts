@@ -1,50 +1,30 @@
-import lcm from "./lcm.webp";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, Stack } from "@mui/material";
+import lcm from "../assets/productImgs/image1.webp";
+
 import { Link } from "react-router-dom";
 
 export default function MyCard() {
   return (
     <Link to="/products/1">
-      <Card
-        sx={{
-          width: { xs: "100%", sm: 300 },
-          p: { xs: 1, sm: 2 },
-        }}
-      >
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height={{ xs: 180, sm: 250 }} // Adjust the height based on your design
-            image={lcm}
-            alt="green iguana"
-            sx={{ objectFit: "cover", width: "100%" }}
+      <div className="group relative">
+        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+          <img
+            src={lcm}
+            alt="..."
+            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
           />
-          <Stack direction={{ xs: "column", sm: "row" }}>
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Laser Cutting Machine
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Laser Cutting Machine
-                <br />
-                Fiber Laser Cutting Machine
-                <br />
-                Metal Fiber Laser Cutting Machine
-                <br />
-              </Typography>
-            </CardContent>
-          </Stack>
-        </CardActionArea>
-        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Button size="small" sx={{ color: "black" }}>
-            Share
-          </Button>
-        </CardActions>
-      </Card>
+        </div>
+        <div className="text-center">
+          <h3 className="text-sm mt-4 text-gray-700">
+            <a href="..">
+              <span aria-hidden="true" className="absolute inset-0" />
+              Industrial 3D Wood Carving Machine
+            </a>
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">3D Wood Carving Machine</p>
+          <p className="mt-1 text-sm text-gray-500">3D Wood Carving Machine</p>
+          <p className="mt-1 text-sm text-gray-500">3D Wood Carving Machine</p>
+        </div>
+      </div>
     </Link>
   );
 }
